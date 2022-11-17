@@ -21,9 +21,9 @@ const timezone = moment.tz.guess()
 let url = "https://api.open-meteo.com/v1/forecast?"
 
 if(args.n) {
-	url = url + "latitude=" + parseFloat(args.n)
+	url = url + "latitude=" + args.n
 } else if (args.s) {
-	url = url + "latitude=" + (parseFloat(args.s) * -1) 
+	url = url + "latitude=" + (args.s * -1) 
  
 }
 
@@ -40,24 +40,6 @@ if(args.z) {
 	url = url + "&timezone=" + timezone
 }
 url = url + "&daily=precipitation_hours"
-if(args.d) {
-	if(args.d == 0) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-04"
-	} else if (args.d == 1) {
-		url = url + "&start_date=2022-10-04&end_date=2022-10-05"
-	} else if(args.d == 2) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-06"
-	} else if(args.d == 3) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-07"
-	} else if(args.d == 4) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-08"
-	} else if(args.d == 5) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-09"
-	} else if(args.d == 6) {
-                url = url + "&start_date=2022-10-04&end_date=2022-10-10"
-	}
-} else if(!args.d) {
-        url = url + "&start_date=2022-10-04&end_date=2022-10-05"
 }
 console.log(url);
 const response = await fetch(url)
