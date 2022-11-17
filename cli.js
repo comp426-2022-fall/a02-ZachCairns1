@@ -40,7 +40,6 @@ if(args.z) {
 	url = url + "&timezone=" + timezone
 }
 url = url + "&daily=precipitation_hours"
-}
 console.log(url);
 const response = await fetch(url)
 
