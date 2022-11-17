@@ -21,9 +21,9 @@ const timezone = moment.tz.guess()
 let url = "https://api.open-meteo.com/v1/forecast?"
 
 if(args.n) {
-	url = url + "latitude=" + args.n
+	url = url + "latitude=" + parseFloat(args.n)
 } else if (args.s) {
-	url = url + "latitude=" + (args.s * -1) 
+	url = url + "latitude=" + (parseFloat(args.s) * -1) 
  
 }
 
