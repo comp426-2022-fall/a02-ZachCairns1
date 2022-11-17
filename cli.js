@@ -20,7 +20,8 @@ const timezone = args.z || moment.tz.guess()
 
 let latitude = args.n || (-1 * args.s)
 let longtitude = args.e || (-1 * args.w)
-
+console.log(latitude)
+console.log(longtitude)
 let url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longtitude + "&daily=precipitation_hours&timezone=" + timezone;
 
 const response = await fetch(url)
