@@ -48,7 +48,7 @@ if(args.j) {
 	Console.log(data)
 }
 
-const days = args.d
+let days = args.d || 1 
 
 if(data.daily.precipitation_hours[days] > 0) {
 	console.log("You might need your galoshes")
