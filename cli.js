@@ -27,6 +27,7 @@ const data = await response.json();
 
 if(args.j) {
 	console.log(data)
+	process.exit(0)
 }
 
 let days = args.d || 1 
