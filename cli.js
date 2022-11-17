@@ -13,6 +13,7 @@ if(args.h){
     -z            Time zone: uses tz.guess() from moment-timezone by default.
     -d 0-6        Day to retrieve weather: 0 is today; defaults to 1.
     -j            Echo pretty JSON from open-meteo API and exit.`)
+	process.exit(0);
 }
 
 const timezone = moment.tz.guess()
@@ -22,20 +23,14 @@ let url = "https://api.open-meteo.com/v1/forecast?"
 if(args.n) {
 	url = url + "latitude=" + args.n
 } else if (args.s) {
-	let temp = args.s
-	temp *= -1
-	let str = temp.toFixed(2)
-	url = url + "latitude=" + parseInt(str) 
+	url = url + "latitude=" + (args.s * -1) 
  
 }
 
 if(args.e) {
 	url = url + "&longitude=" + args.e
 } else if(args.w) {
-	let temp = args.w
-	temp *= -1
-	let str = temp.toFixed(2)	
-	url = url + "&longitude=" + str 
+	url = url + "&longitude=" + (args.w * -1) 
 
 }
 
