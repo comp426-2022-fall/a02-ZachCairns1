@@ -26,7 +26,7 @@ console.log(url)
 const data = await response.json();
 
 if(args.j) {
-	Console.log(data)
+	console.log(data)
 }
 
 let days = args.d || 1 
