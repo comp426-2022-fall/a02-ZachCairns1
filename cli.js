@@ -22,7 +22,6 @@ let longtitude = args.e || (-1 * args.w)
 let url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longtitude + "&daily=precipitation_hours&timezone=" + timezone;
 
 const response = await fetch(url)
-console.log(url)
 const data = await response.json();
 
 if(args.j) {
@@ -31,7 +30,6 @@ if(args.j) {
 }
 
 let days = args.d || 1 
-console.log(days)
 if(data.daily.precipitation_hours[days] > 0) {
 	console.log("You might need your galoshes")
 } else if (data.daily.precipitation_hours[days] == 0) {
