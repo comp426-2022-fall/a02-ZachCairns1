@@ -41,7 +41,7 @@ if(args.z) {
 }
 url = url + "&daily=precipitation_hours"
 const response = await fetch(url)
-
+console.log(url)
 const data = await response.json();
 
 if(args.j) {
@@ -49,7 +49,7 @@ if(args.j) {
 }
 
 let days = args.d || 1 
-
+console.log(days)
 if(data.daily.precipitation_hours[days] > 0) {
 	console.log("You might need your galoshes")
 } else if (data.daily.precipitation_hours[days] == 0) {
