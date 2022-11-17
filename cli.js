@@ -25,7 +25,7 @@ if(args.n) {
 	let temp = args.s
 	temp *= -1
 	let str = temp.toFixed(2)
-	url = url + "latitude=" + str 
+	url = url + "latitude=" + parseInt(str) 
  
 }
 
@@ -64,7 +64,7 @@ if(args.d) {
 } else if(!args.d) {
         url = url + "&start_date=2022-10-04&end_date=2022-10-05"
 }
-
+console.log(url);
 const response = await fetch(url)
 
 const data = await response.json();
