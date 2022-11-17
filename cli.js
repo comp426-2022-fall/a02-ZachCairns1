@@ -29,7 +29,7 @@ if(args.j) {
 	process.exit(0)
 }
 
-let days = args.d || 1 
+let days = args.d 
 if(data.daily.precipitation_hours[days] > 0) {
 	console.log("You might need your galoshes")
 } else if (data.daily.precipitation_hours[days] == 0) {
