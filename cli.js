@@ -16,30 +16,13 @@ if(args.h){
 	process.exit(0);
 }
 
-const timezone = moment.tz.guess()
+const timezone = args.z || moment.tz.guess()
 
-let url = "https://api.open-meteo.com/v1/forecast?"
+let latitude = args.n || (-1 * args.s)
+let longtitude = args.e || (-1 * args.w)
 
-if(args.n) {
-	url = url + "latitude=" + args.n
-} else if (args.s) {
-	url = url + "latitude=" + (args.s * -1) 
- 
-}
+let url = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longtitude + "&daily=precipitation_hours&timezone=" + timezone;
 
-if(args.e) {
-	url = url + "&longitude=" + args.e
-} else if(args.w) {
-	url = url + "&longitude=" + (args.w * -1) 
-
-}
-
-if(args.z) {
-	url = url + "&timezone=" + args.z
-} else if(!args.z) {
-	url = url + "&timezone=" + timezone
-}
-url = url + "&daily=precipitation_hours"
 const response = await fetch(url)
 console.log(url)
 const data = await response.json();
