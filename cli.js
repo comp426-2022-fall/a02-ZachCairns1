@@ -40,7 +40,6 @@ if(args.z) {
 	url = url + "&timezone=" + timezone
 }
 url = url + "&daily=precipitation_hours"
-console.log(url);
 const response = await fetch(url)
 
 const data = await response.json();
@@ -50,6 +49,12 @@ if(args.j) {
 }
 
 const days = args.d
+
+if(data.daily.precipitation_hours[days] > 0) {
+	console.log("You might need your galoshes")
+} else if (data.daily.precipitation_hours[days] == 0) {
+	console.log("You will not need your galoshes")
+}
 
 if(days == 0) {
 	console.log("today.")
