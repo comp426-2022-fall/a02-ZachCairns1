@@ -17,7 +17,8 @@ if(args.h){
 }
 
 const timezone = args.z || moment.tz.guess()
-
+console.log(args.n)
+console.log(args.w)
 let latitude = args.n || (-1 * args.s)
 let longtitude = args.e || (-1 * args.w)
 console.log(latitude)
